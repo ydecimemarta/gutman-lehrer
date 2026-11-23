@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>C · Escala — Gutman Lehrer Arquitectas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blanco:#FAFAF8; --negro:#1C1C1A; --ocre:#C8912B; --gris:#77756F; --linea:#E2E0DA;
+  --f:"Archivo",system-ui,sans-serif;
+  --gut:clamp(20px,3.5vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--blanco);color:var(--negro);font:400 17px/1.55 var(--f);font-stretch:100%;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+:focus-visible{outline:2px solid var(--ocre);outline-offset:3px}
+.x{font-stretch:125%}
+.n{font-stretch:75%}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:20px var(--gut)}
+.logo{text-decoration:none;font-weight:600;font-size:14px;font-stretch:125%;letter-spacing:.04em}
+nav{display:flex;gap:26px;font-size:15px}
+nav a{text-decoration:none}
+nav a:hover{color:var(--ocre)}
+
+/* hero: wide expanded headline, then the same house shown at four scales */
+.hero{padding:clamp(32px,6vw,80px) var(--gut) 0}
+.hero h1{font-weight:300;font-stretch:125%;font-size:clamp(40px,7.4vw,124px);line-height:.98;letter-spacing:-.03em}
+.hero h1 b{font-weight:300;font-stretch:62%;display:block}
+.hero .sub{display:grid;grid-template-columns:1fr 1fr;gap:var(--gut);margin-top:36px;align-items:end}
+.hero .sub p{max-width:36ch;font-size:18px}
+.ctas{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.btn{font:500 15px var(--f);text-decoration:none;padding:12px 18px;border:1px solid var(--negro)}
+.btn.solid{background:var(--negro);color:var(--blanco)}
+.btn:hover{background:var(--ocre);border-color:var(--ocre);color:var(--negro)}
+
+.scales{display:grid;grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr));height:clamp(300px,34vw,520px);gap:8px;margin-top:clamp(40px,6vw,72px);padding:0 var(--gut)}
+.scale{background-image:url(../assets/img/explora/altamira-mesa.jpg);background-repeat:no-repeat;position:relative}
+.s1{background-size:cover;background-position:50% 50%}
+.s2{background-size:auto 150%;background-position:58% 0%}
+.s3{background-size:auto 320%;background-position:22% 100%}
+.s4{background-size:500% auto;background-position:5% 37%}
+.scale-cap{display:grid;grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr));gap:8px;padding:12px var(--gut) 0;font-size:15px}
+.scale-cap span{font-stretch:125%;font-weight:500}
+.scale-cap small{display:block;color:var(--gris);font-size:14px;font-stretch:100%}
+.scale-note{padding:20px var(--gut) 0;color:var(--gris);font-size:14px}
+
+section{padding:clamp(72px,10vw,144px) var(--gut)}
+.two{display:grid;grid-template-columns:1fr 2fr;gap:var(--gut)}
+h2{font-weight:500;font-stretch:125%;font-size:clamp(22px,2vw,28px);letter-spacing:-.01em;line-height:1.15}
+.statement p{font-size:clamp(22px,2.4vw,34px);line-height:1.3;letter-spacing:-.012em;max-width:28em}
+.statement p+p{margin-top:.7em}
+
+.nums{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--negro);margin:0 var(--gut)}
+.nums div{padding:20px 0 24px}
+.nums b{display:block;font-weight:300;font-stretch:62%;font-size:clamp(56px,7vw,112px);line-height:.9;letter-spacing:-.02em}
+.nums b.w{font-stretch:125%;font-size:clamp(30px,3.4vw,52px);line-height:1.6}
+.nums span{color:var(--gris);font-size:15px}
+
+.plist{list-style:none;border-top:1px solid var(--linea)}
+.plist li a{display:grid;grid-template-columns:2fr 2fr 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--linea);text-decoration:none;align-items:baseline}
+.plist .name{font-stretch:125%;font-weight:400;font-size:clamp(20px,2vw,28px);letter-spacing:-.01em}
+.plist .type{color:var(--gris)}
+.plist .go{text-align:right;font-size:14px;color:var(--gris)}
+.plist li a:hover .name{color:var(--ocre)}
+.feature{display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-bottom:40px}
+.feature figure:first-child{aspect-ratio:3/2}
+.feature figcaption{font-size:14px;color:var(--gris);padding-top:8px}
+
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gut);border-top:1px solid var(--negro);padding-top:24px}
+.svc a{text-decoration:none}
+.svc h3{font-weight:500;font-stretch:125%;font-size:19px;margin-bottom:10px;line-height:1.2}
+.svc p{color:#4B4A45;font-size:16px}
+.svc a:hover h3{color:var(--ocre)}
+
+.socias{display:grid;grid-template-columns:1fr 1fr;gap:var(--gut);background:var(--negro);color:var(--blanco)}
+.socias .photo{aspect-ratio:1;background:#2A2A27;display:grid;place-items:center;color:#8A8880}
+.socias h2{font-size:clamp(30px,3.4vw,52px);font-weight:300;margin-bottom:24px}
+.socias p{max-width:38ch;color:#CFCDC6;margin-bottom:28px}
+.socias .btn{border-color:var(--blanco)}
+
+.close h2{font-weight:300;font-size:clamp(40px,6.4vw,108px);line-height:.98;letter-spacing:-.03em}
+.close h2 b{font-weight:300;font-stretch:62%}
+.close .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--gut);margin-top:32px;align-items:end}
+
+footer{border-top:1px solid var(--negro);margin:0 var(--gut);padding:24px 0 48px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;font-size:14px;color:var(--gris)}
+footer b{color:var(--negro);font-stretch:125%;font-weight:600}
+
+@media (max-width:860px){
+  nav{display:none}
+  .hero .sub,.two,.socias,.close .row,.feature{grid-template-columns:1fr}
+  .ctas{justify-content:flex-start}
+  .scales,.scale-cap{grid-template-columns:1fr 1fr}
+  .scales{height:auto}.scale{aspect-ratio:3/4}
+  .s1{grid-column:1/-1;aspect-ratio:3/2}
+  .scale-cap{display:none}
+  .scale::after{content:attr(data-l);position:absolute;left:8px;bottom:8px;background:var(--blanco);font-size:13px;padding:3px 7px;font-stretch:125%}
+  .nums{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr 1fr}
+  .plist li a{grid-template-columns:1fr}
+  .plist .go{display:none}
+  footer{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#">GUTMAN LEHRER ARQUITECTAS</a>
+  <nav><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#estudio">Estudio</a><a href="#contacto">Contacto</a><span>ES / EN</span></nav>
+</header>
+
+<main>
+<section class="hero" style="padding-bottom:0">
+  <h1>Arquitectura e interiorismo, <b>de principio a fin.</b></h1>
+  <div class="sub">
+    <p>Proyectos integrales de vivienda: reformas, interiorismo, mobiliario a medida y entrega llave en mano.</p>
+    <div class="ctas"><a class="btn solid" href="#proyectos">Ver proyectos</a><a class="btn" href="#contacto">Consultar un proyecto</a></div>
+  </div>
+</section>
+
+<div class="scales" role="img" aria-label="Cuatro recortes de la misma cocina: la vivienda, el ambiente, la mesa y los frascos del estante">
+  <div class="scale s1" data-l="Vivienda"></div>
+  <div class="scale s2" data-l="Ambiente"></div>
+  <div class="scale s3" data-l="Mueble"></div>
+  <div class="scale s4" data-l="Objeto"></div>
+</div>
+<div class="scale-cap" aria-hidden="true">
+  <div><span>Vivienda</span><small>El proyecto y la obra</small></div>
+  <div><span>Ambiente</span><small>Luz, materiales y terminaciones</small></div>
+  <div><span>Mueble</span><small>Mobiliario y carpinterías</small></div>
+  <div><span>Objeto</span><small>Lo que completa la casa</small></div>
+</div>
+<p class="scale-note">Cocina Altamira</p>
+
+<section id="estudio" class="two statement">
+  <h2>El estudio</h2>
+  <div>
+    <p>Gutman Lehrer Arquitectas es un estudio de arquitectura e interiorismo residencial fundado en Buenos Aires en 1996.</p>
+    <p>Dirigido por las arquitectas Giselle Gutman y Mariana Lehrer, el estudio desarrolla cada vivienda en su totalidad: el proyecto, la obra, el mobiliario y cada objeto que la completa.</p>
+  </div>
+</section>
+
+<div class="nums">
+  <div><b>30</b><span>años de trayectoria</span></div>
+  <div><b>100+</b><span>proyectos de vivienda</span></div>
+  <div><b class="w">Casa FOA</b><span>Ediciones 2006, 2009 y 2010</span></div>
+</div>
+
+<section id="proyectos">
+  <div class="two">
+    <h2>Proyectos</h2>
+    <div>
+      <div class="feature">
+        <figure><img src="../assets/img/explora/villanueva-living.jpg" alt="Living con sillón gris y mesa de mármol oscuro" style="object-position:50% 60%"><figcaption>Casa Villanueva</figcaption></figure>
+        <figure><img src="../assets/img/explora/villanueva-sillon.jpg" alt="Sillón con almohadones verdes y amarillos y mesas de acero"><figcaption>Casa Villanueva</figcaption></figure>
+      </div>
+      <ul class="plist">
+        <li><a href="#"><span class="name">Duplex en Palermo</span><span class="type">Reforma integral</span><span class="go">Ver proyecto</span></a></li>
+        <li><a href="#"><span class="name">Piso en Bajo Belgrano</span><span class="type">Interiorismo integral</span><span class="go">Ver proyecto</span></a></li>
+        <li><a href="#"><span class="name">Piso Olleros</span><span class="type">Remodelación y arquitectura interior</span><span class="go">Ver proyecto</span></a></li>
+        <li><a href="#"><span class="name">Casa en Nordelta</span><span class="type">Tipo a confirmar</span><span class="go">Ver proyecto</span></a></li>
+        <li><a href="#"><span class="name">Casa Villanueva</span><span class="type">Tipo a confirmar</span><span class="go">Ver proyecto</span></a></li>
+      </ul>
+      <p style="margin-top:28px"><a class="btn" href="#">Ver todos los proyectos</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" style="padding-top:0">
+  <div class="svc">
+    <a href="#"><h3>Reforma integral</h3><p>La transformación completa de una vivienda existente, del proyecto a la dirección de obra.</p></a>
+    <a href="#"><h3>Interiorismo en obra nueva</h3><p>Interiores, iluminación y equipamiento definidos desde el inicio de la construcción.</p></a>
+    <a href="#"><h3>Llave en mano</h3><p>La vivienda entregada completa y lista para habitar.</p></a>
+    <a href="#"><h3>Mobiliario a medida</h3><p>Muebles y carpinterías diseñados por el estudio para cada espacio.</p></a>
+  </div>
+</section>
+
+<section class="socias">
+  <div class="photo">Retrato de las socias</div>
+  <div style="align-self:end">
+    <h2>Un estudio dirigido por sus socias</h2>
+    <p>Giselle Gutman y Mariana Lehrer comparten una misma manera de entender la arquitectura. Cada proyecto pasa por ellas: participan en el diseño, toman las decisiones clave junto a cada cliente y supervisan la obra hasta la entrega.</p>
+    <a class="btn" href="#">Conocer el estudio</a>
+  </div>
+</section>
+
+<section id="contacto" class="close">
+  <h2 class="x">Cada proyecto empieza <b>con una conversación.</b></h2>
+  <div class="row">
+    <p style="max-width:40ch">El estudio desarrolla proyectos integrales de vivienda en Buenos Aires, en otras ciudades del país y en el exterior.</p>
+    <div class="ctas"><a class="btn solid" href="mailto:estudio@gl-arquitectura.com.ar">Consultar un proyecto</a><a class="btn" href="#">WhatsApp</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div><b>GUTMAN LEHRER ARQUITECTAS</b><br>Arquitectura e interiorismo, de principio a fin.</div>
+  <div>Buenos Aires<br>Proyectos en Argentina y el exterior</div>
+  <div>estudio@gl-arquitectura.com.ar<br>Instagram @estudiogl</div>
+  <div>Privacidad<br>© 2026</div>
+</footer>
+</body>
+</html>

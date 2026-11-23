@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A · Planta — Gutman Lehrer Arquitectas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#F1F2EF; --grafito:#2A2D2B; --cota:#8C918C; --oliva:#5F5E3A; --linea:#CFD2CD;
+  --f:"Familjen Grotesk",system-ui,sans-serif;
+  --gut:clamp(20px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--papel);color:var(--grafito);font:400 17px/1.55 var(--f);-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--oliva);outline-offset:3px}
+.wrap{padding-inline:var(--gut);max-width:1440px;margin:0 auto}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+
+/* header */
+header{display:flex;justify-content:space-between;align-items:center;padding:22px var(--gut);border-bottom:1px solid var(--linea)}
+.logo{font-weight:600;letter-spacing:.14em;font-size:13px;text-decoration:none}
+nav{display:flex;gap:28px;font-size:15px}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.lang{color:var(--cota)}
+
+/* hero: the headline is a dimension line from principio to fin */
+.hero{padding-top:clamp(48px,8vw,112px)}
+.hero h1{font-weight:500;font-size:clamp(38px,6.4vw,92px);line-height:1.02;letter-spacing:-.025em;grid-column:1/-1}
+.hero h1 .row{display:flex;align-items:center;gap:.28em}
+.cotaline{flex:1;height:.5em;position:relative;min-width:60px}
+.cotaline::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1.5px solid var(--oliva)}
+.cotaline i{position:absolute;top:0;bottom:0;width:1.5px;background:var(--oliva)}
+.cotaline i:first-child{left:0}.cotaline i:last-child{right:0}
+.cotaline i::after{content:"";position:absolute;top:50%;left:50%;width:14px;height:1.5px;background:var(--oliva);transform:translate(-50%,-50%) rotate(-45deg)}
+.hero .lead{grid-column:1/6;margin-top:40px;font-size:19px;max-width:34ch}
+.hero .ctas{grid-column:1/6;margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 20px;font:500 15px var(--f);text-decoration:none;border:1.5px solid var(--grafito)}
+.btn.solid{background:var(--grafito);color:var(--papel)}
+.btn:hover{background:var(--oliva);border-color:var(--oliva);color:var(--papel)}
+.hero figure{grid-column:6/-1;grid-row:2/5;margin-top:40px;aspect-ratio:3/2;position:relative}
+.hero figcaption,.cap{font-size:13px;color:var(--cota);margin-top:10px}
+
+/* annotated rows */
+section{padding:clamp(64px,9vw,128px) 0}
+.ref{grid-column:1/4;font-size:14px;color:var(--cota);padding-top:6px}
+.body{grid-column:4/11}
+.body p{font-size:clamp(20px,2.1vw,28px);line-height:1.35;letter-spacing:-.01em;max-width:30em}
+.body p+p{margin-top:.8em}
+
+/* cifras as a plan legend */
+.legend{border-top:1px solid var(--grafito);border-bottom:1px solid var(--linea);display:grid;grid-template-columns:repeat(3,1fr)}
+.legend div{padding:22px 0 26px;border-right:1px solid var(--linea);padding-left:20px}
+.legend div:first-child{padding-left:0}
+.legend div:last-child{border-right:0}
+.legend b{display:block;font-weight:500;font-size:clamp(28px,3.4vw,48px);letter-spacing:-.02em;line-height:1.1}
+.legend span{font-size:15px;color:var(--cota)}
+
+/* projects: schedule table + two images */
+.projects .imgs{grid-column:4/-1;display:grid;grid-template-columns:1.25fr 1fr;gap:24px;margin-bottom:40px}
+.projects .imgs figure:first-child{aspect-ratio:2/3}
+.projects .imgs figure:last-child{aspect-ratio:4/5;align-self:end}
+table{grid-column:4/-1;width:100%;border-collapse:collapse;font-size:16px}
+th{text-align:left;font-weight:400;color:var(--cota);font-size:14px;padding:0 0 10px;border-bottom:1px solid var(--grafito)}
+td{padding:16px 0;border-bottom:1px solid var(--linea)}
+td:first-child{font-weight:500}
+tr:hover td{color:var(--oliva)}
+.more{grid-column:4/-1;margin-top:28px}
+
+/* services */
+.services{background:var(--grafito);color:var(--papel)}
+.services .ref{color:#A8ADA8}
+.svc{grid-column:4/-1;display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+.svc a{display:block;text-decoration:none;padding:28px 24px 32px 0;border-top:1px solid #4A4E4B}
+.svc a:nth-child(odd){padding-right:40px}
+.svc h3{font-weight:500;font-size:24px;letter-spacing:-.01em;margin-bottom:8px}
+.svc p{color:#C4C8C4;max-width:34ch}
+.svc a:hover h3{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+
+/* socias */
+.socias .photo{grid-column:4/8;aspect-ratio:4/5;background:repeating-linear-gradient(45deg,transparent 0 10px,var(--linea) 10px 11px);border:1px solid var(--linea);display:grid;place-items:center;color:var(--cota);font-size:14px}
+.socias .txt{grid-column:9/-1;align-self:end}
+.socias h2{font-weight:500;font-size:clamp(26px,2.6vw,36px);letter-spacing:-.015em;line-height:1.15;margin-bottom:18px}
+.socias .txt p{margin-bottom:24px;max-width:36ch}
+
+/* cierre */
+.close{border-top:1px solid var(--grafito)}
+.close h2{grid-column:1/9;font-weight:500;font-size:clamp(36px,5.2vw,76px);line-height:1.04;letter-spacing:-.025em}
+.close p{grid-column:1/6;margin-top:24px;max-width:40ch}
+.close .ctas{grid-column:1/-1;margin-top:28px;display:flex;gap:12px}
+
+footer{border-top:1px solid var(--linea);padding:36px 0 48px;font-size:14px;color:var(--cota)}
+footer .grid>div{grid-column:span 3}
+footer strong{color:var(--grafito);font-weight:600;letter-spacing:.14em;font-size:12px}
+footer p{margin-top:6px}
+
+@media (max-width:860px){
+  nav{display:none}
+  .grid>*{grid-column:1/-1!important}
+  .hero figure{grid-row:auto}
+  .ref{margin-bottom:12px}
+  .legend{grid-template-columns:1fr}
+  .legend div{border-right:0;border-bottom:1px solid var(--linea);padding-left:0}
+  .svc{grid-template-columns:1fr}
+  .projects .imgs{grid-template-columns:1fr 1fr}
+  td:nth-child(3),th:nth-child(3){display:none}
+  footer .grid>div{margin-bottom:16px}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#">GUTMAN LEHRER ARQUITECTAS</a>
+  <nav><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#estudio">Estudio</a><a href="#contacto">Contacto</a><span class="lang">ES / EN</span></nav>
+</header>
+
+<main>
+<section class="hero wrap grid" style="padding-bottom:0">
+  <h1>
+    <span class="row">Arquitectura e</span>
+    <span class="row">interiorismo, de</span>
+    <span class="row">principio <span class="cotaline" aria-hidden="true"><i></i><i></i></span> a fin.</span>
+  </h1>
+  <p class="lead">Proyectos integrales de vivienda: reformas, interiorismo, mobiliario a medida y entrega llave en mano.</p>
+  <div class="ctas"><a class="btn solid" href="#proyectos">Ver proyectos</a><a class="btn" href="#contacto">Consultar un proyecto</a></div>
+  <figure>
+    <img src="../assets/img/explora/altamira-mesa.jpg" alt="Cocina con mesa de madera maciza, estantes blancos y ventana a un patio con plantas">
+    <figcaption>Cocina Altamira</figcaption>
+  </figure>
+</section>
+
+<section id="estudio" class="wrap grid">
+  <div class="ref">El estudio</div>
+  <div class="body">
+    <p>Gutman Lehrer Arquitectas es un estudio de arquitectura e interiorismo residencial fundado en Buenos Aires en 1996.</p>
+    <p>Dirigido por las arquitectas Giselle Gutman y Mariana Lehrer, el estudio desarrolla cada vivienda en su totalidad: el proyecto, la obra, el mobiliario y cada objeto que la completa.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="legend">
+  <div><b>30 años</b><span>de trayectoria</span></div>
+  <div><b>+100</b><span>proyectos de vivienda</span></div>
+  <div><b>Casa FOA</b><span>Ediciones 2006, 2009 y 2010</span></div>
+</div></div>
+
+<section id="proyectos" class="projects wrap grid">
+  <div class="ref">Proyectos</div>
+  <div class="imgs">
+    <figure><img src="../assets/img/explora/altamira-isla.jpg" alt="Isla de cocina blanca con estantes colgantes de madera iluminados"><p class="cap">Cocina Altamira</p></figure>
+    <figure><img src="../assets/img/explora/villanueva-living.jpg" alt="Living con sillón gris, mesa de mármol oscuro y revestimiento de madera"><p class="cap">Casa Villanueva</p></figure>
+  </div>
+  <table>
+    <thead><tr><th>Proyecto</th><th>Tipo</th><th>Barrio</th></tr></thead>
+    <tbody>
+      <tr><td>Duplex en Palermo</td><td>Reforma integral</td><td>Palermo</td></tr>
+      <tr><td>Piso en Bajo Belgrano</td><td>Interiorismo integral</td><td>Bajo Belgrano</td></tr>
+      <tr><td>Piso Olleros</td><td>Remodelación y arquitectura interior</td><td>A confirmar</td></tr>
+      <tr><td>Casa en Nordelta</td><td>A confirmar</td><td>Nordelta</td></tr>
+      <tr><td>Casa Villanueva</td><td>A confirmar</td><td>A confirmar</td></tr>
+    </tbody>
+  </table>
+  <div class="more"><a class="btn" href="#">Ver todos los proyectos</a></div>
+</section>
+
+<section id="servicios" class="services">
+  <div class="wrap grid">
+    <div class="ref">Servicios</div>
+    <div class="svc">
+      <a href="#"><h3>Reforma integral</h3><p>La transformación completa de una vivienda existente, del proyecto a la dirección de obra.</p></a>
+      <a href="#"><h3>Interiorismo en obra nueva</h3><p>Interiores, iluminación y equipamiento definidos desde el inicio de la construcción.</p></a>
+      <a href="#"><h3>Llave en mano</h3><p>La vivienda entregada completa y lista para habitar.</p></a>
+      <a href="#"><h3>Mobiliario a medida</h3><p>Muebles y carpinterías diseñados por el estudio para cada espacio.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="socias wrap grid">
+  <div class="ref">Las socias</div>
+  <div class="photo">Retrato de las socias</div>
+  <div class="txt">
+    <h2>Un estudio dirigido por sus socias</h2>
+    <p>Giselle Gutman y Mariana Lehrer comparten una misma manera de entender la arquitectura. Cada proyecto pasa por ellas: participan en el diseño, toman las decisiones clave junto a cada cliente y supervisan la obra hasta la entrega.</p>
+    <a class="btn" href="#">Conocer el estudio</a>
+  </div>
+</section>
+
+<section id="contacto" class="close wrap grid">
+  <h2>Cada proyecto empieza con una conversación.</h2>
+  <p>El estudio desarrolla proyectos integrales de vivienda en Buenos Aires, en otras ciudades del país y en el exterior.</p>
+  <div class="ctas"><a class="btn solid" href="mailto:estudio@gl-arquitectura.com.ar">Consultar un proyecto</a><a class="btn" href="#">WhatsApp</a></div>
+</section>
+</main>
+
+<footer><div class="wrap grid">
+  <div><strong>GUTMAN LEHRER ARQUITECTAS</strong><p>Arquitectura e interiorismo, de principio a fin.</p></div>
+  <div><p>Buenos Aires</p><p>Proyectos en Argentina y el exterior</p></div>
+  <div><p>estudio@gl-arquitectura.com.ar</p><p>Instagram @estudiogl</p></div>
+  <div><p>Privacidad</p><p>© 2026</p></div>
+</div></footer>
+</body>
+</html>
