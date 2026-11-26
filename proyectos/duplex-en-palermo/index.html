@@ -27,17 +27,18 @@
 
 <main>
 <section class="intro">
-  <h2 class="rv">Una reforma integral pensada para transformar la manera de habitar la casa</h2>
-  <p class="rv">En este dúplex de Palermo, el estudio intervino las dos plantas con una misma idea: dar a los espacios una identidad común, más contemporánea, cálida y serena. La propuesta combina una paleta neutra, maderas claras, textiles y muebles diseñados a medida, con especial atención a la iluminación, el guardado y las proporciones.</p>
-</section>
-
-<dl class="g meta">
+  <dl class="meta rv">
   <div><dt class="lbl">Tipo</dt><dd>Reforma integral</dd></div>
   <div><dt class="lbl">Ubicación</dt><dd>Palermo, Buenos Aires</dd></div>
   <div><dt class="lbl">Superficie</dt><dd>400 m²</dd></div>
   <div><dt class="lbl">Año</dt><dd>2026</dd></div>
   <div><dt class="lbl">Plantas</dt><dd>Piso 8 y piso 9</dd></div>
-</dl>
+  </dl>
+  <div class="intro-t">
+    <h2 class="rv">Una reforma integral pensada para transformar la manera de habitar la casa</h2>
+    <p class="rv">En este dúplex de Palermo, el estudio intervino las dos plantas con una misma idea: dar a los espacios una identidad común, más contemporánea, cálida y serena. La propuesta combina una paleta neutra, maderas claras, textiles y muebles diseñados a medida, con especial atención a la iluminación, el guardado y las proporciones.</p>
+  </div>
+</section>
 
 <!-- PLENA · living -->
 <div class="plena rv"><img src="../../assets/img/proyectos/gl01/GL01-16.webp" width="1920" height="1280" alt="Living con sillones en ele, mesas bajas y ventanal hacia los árboles"></div>
@@ -191,9 +192,8 @@
 <!-- LUZ Y MATERIA -->
 <section class="objs" aria-label="Detalles">
   <h2 class="sec-t rv">Luz y materia</h2>
-  <div class="stage" id="stage" tabindex="0" aria-roledescription="carrusel"></div>
-  <p class="capline" id="capline" aria-live="polite"></p>
-  <div class="ctl"><button class="u" id="prev">Anterior</button><span class="cnt" id="cnt"></span><button class="u" id="nextb">Siguiente</button></div>
+  <div class="row" id="row" tabindex="0" aria-label="Detalles: arrastrar o usar las flechas"></div>
+  <div class="lmctl"><div class="lmbar"><i id="lmbar"></i></div><div class="lmb"><button class="arw" id="prev" aria-label="Imagen anterior"><svg viewBox="0 0 48 24" aria-hidden="true"><path d="M47 12H2M12 2L2 12l10 10"/></svg></button><button class="arw" id="nextb" aria-label="Imagen siguiente"><svg viewBox="0 0 48 24" aria-hidden="true"><path d="M1 12h45M36 2l10 10-10 10"/></svg></button></div></div>
 </section>
 
 <!-- ANTES / DESPUÉS -->
@@ -211,13 +211,18 @@
 </section>
 
 <!-- SERVICIO + SIGUIENTE PROYECTO -->
-<section class="next">
-  <p class="rv" style="margin:0 auto 70px;max-width:560px;color:var(--soft)">Este proyecto es una <strong style="font-weight:500;color:var(--ink)">reforma integral</strong>: el estudio proyecta la nueva distribución, define materiales, iluminación y terminaciones, y dirige la obra hasta el final.<br><br><a class="u" href="#">Conocer el servicio</a></p>
-  <h2 class="sec-t rv" style="margin-bottom:40px">Otros proyectos</h2>
+<section class="servicio">
+  <p class="rv">Este proyecto es una <strong style="font-weight:500;color:var(--ink)">reforma integral</strong>: el estudio proyecta la nueva distribución, define materiales, iluminación y terminaciones, y dirige la obra hasta el final.<br><br><a class="u" href="#">Conocer el servicio</a></p>
+</section>
+
+<!-- OTROS PROYECTOS -->
+<section class="next" aria-label="Otros proyectos">
+  <span class="lbl rv">Seguir recorriendo</span>
+  <h2 class="sec-t rv">Otros proyectos</h2>
   <div class="g more">
     <a class="card rv" href="../piso-en-bajo-belgrano/" style="grid-column:1 / span 4"><div class="ph"><img src="../../assets/img/proyectos/gl02/GL02-15.webp" width="1200" height="800" alt="Living de un piso en Bajo Belgrano con sillones giratorios y ventanal"></div><h3>Piso en Bajo Belgrano</h3><p>Proyecto integral de interiores · Bajo Belgrano · 2025</p></a>
-    <a class="card rv" href="#" style="grid-column:5 / span 4"><div class="ph"><img src="../../assets/img/proyectos/gl06/GL06-01.webp" width="1200" height="800" alt="Living luminoso con sillones de terciopelo naranja"></div><h3>Piso en Av. del Libertador</h3><p>Equipamiento y diseño interior · Belgrano · 2019</p></a>
-    <a class="card rv" href="#" style="grid-column:9 / span 4"><div class="ph"><img src="../../assets/img/proyectos/gl05/GL05-01.webp" width="800" height="1200" alt="Cocina con barra de madera y lámpara colgante verde"></div><h3>Piso Incas</h3><p>Optimización y diseño de cocina · Belgrano R · 2023</p></a>
+    <a class="card rv" href="../piso-en-av-del-libertador/" style="grid-column:5 / span 4"><div class="ph"><img src="../../assets/img/proyectos/gl06/GL06-01.webp" width="1200" height="800" alt="Living luminoso con sillones de terciopelo naranja"></div><h3>Piso en Av. del Libertador</h3><p>Equipamiento y diseño interior · Belgrano · 2019</p></a>
+    <a class="card rv" href="../piso-incas/" style="grid-column:9 / span 4"><div class="ph"><img src="../../assets/img/proyectos/gl05/GL05-01.webp" width="800" height="1200" alt="Cocina con barra de madera y lámpara colgante verde"></div><h3>Piso Incas</h3><p>Optimización y diseño de cocina · Belgrano R · 2023</p></a>
   </div>
   <a class="u allp rv" href="#">Ver todos los proyectos</a>
 </section>

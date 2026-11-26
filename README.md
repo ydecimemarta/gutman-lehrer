@@ -20,6 +20,8 @@ Dominio propio: se agrega un archivo `CNAME` cuando esté listo.
 | GL01 | `proyectos/duplex-en-palermo/` |
 | GL02 | `proyectos/piso-en-bajo-belgrano/` |
 | GL03 | `proyectos/piso-olleros/` |
+| GL05 | `proyectos/piso-incas/` |
+| GL06 | `proyectos/piso-en-av-del-libertador/` |
 | GL10 | `proyectos/loft-urbano-casa-foa/` |
 
 El panel de pruebas abajo a la izquierda (tipografía de títulos y color del footer) es temporal, para elegir con el estudio.
