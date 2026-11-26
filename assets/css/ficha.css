@@ -50,17 +50,23 @@ a{color:inherit}
 @keyframes word{to{opacity:1;transform:none}}
 
 /* ---------- Apertura y datos ---------- */
-.intro{padding:clamp(80px,12vw,150px) var(--pad) 0;text-align:center}
-.intro h2{margin:0 auto;max-width:640px;font:400 clamp(30px,3.6vw,50px)/1.18 var(--display);text-transform:uppercase;text-wrap:balance}
-.intro p{margin:36px auto 0;max-width:560px;font-size:18px;color:var(--soft)}
+/* Apertura: datos apilados en una columna angosta con filete negro, al costado del título y la bajada.
+   Como los datos se apilan, el largo de cada uno no altera la composición. */
+.intro{padding:clamp(80px,12vw,150px) var(--pad) clamp(70px,9vw,130px);display:grid;grid-template-columns:minmax(180px,250px) minmax(0,640px);
+  gap:clamp(36px,6vw,96px);justify-content:center;align-items:start}
+.intro h2{margin:0;font:400 clamp(30px,3.6vw,50px)/1.15 var(--display);text-transform:uppercase;text-wrap:balance}
+.intro p{margin:32px 0 0;max-width:34em;font-size:18px;color:var(--soft)}
+.meta{margin:.35em 0 0;padding:2px 0 2px 22px;border-left:1px solid var(--ink)}
+.meta div + div{margin-top:18px}
+.meta dt{margin:0 0 5px}
+.meta dd{margin:0;font-size:16.5px;line-height:1.4}
+@media (max-width:860px){
+  .intro{grid-template-columns:1fr;gap:44px}
+  .intro .meta{order:2;display:grid;grid-template-columns:1fr 1fr;gap:18px 24px}
+  .intro .meta div + div{margin-top:0}
+}
 .g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:0 var(--pad);align-items:start}
-/* Ficha técnica: filas con filete, etiqueta a la izquierda y dato a la derecha.
-   El ancho de las columnas es fijo, así que se ve igual con datos cortos o largos. */
-.meta.g{display:block;max-width:640px;margin:clamp(64px,8vw,104px) auto 0;padding:0 var(--pad);box-sizing:content-box}
-.meta div{display:grid;grid-template-columns:minmax(110px,34%) 1fr;column-gap:28px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line)}
-.meta div:first-child{border-top:1px solid var(--line)}
-.meta dt{margin:0}
-.meta dd{margin:0;font-size:17px;line-height:1.45}
+
 
 /* ---------- Módulos de la cascada ---------- */
 .ph{overflow:hidden;background:#e6e2db}
@@ -219,7 +225,6 @@ fieldset{border:0;margin:0;padding:0}
   .logo{text-align:left}
   .logo b{font-size:18px}
   .logo small{font-size:8.5px}
-  .meta div{grid-column:span 4}
   .stage figure{width:min(52vw,380px)}
 }
 @media (max-width:700px){
@@ -227,8 +232,6 @@ fieldset{border:0;margin:0;padding:0}
   .g{grid-template-columns:repeat(6,minmax(0,1fr))}
   .g > *{grid-column:1 / -1 !important}
   .g > * + *{margin-top:28px !important}
-  .meta > * + *{margin-top:0 !important}
-  .meta div{grid-column:span 3 !important}
   .plena{aspect-ratio:4/3}
   .ft .lema{margin-bottom:30px}
   form{grid-template-columns:1fr}
