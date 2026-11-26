@@ -36,51 +36,22 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-  // Luz y materia: carrusel con lupa
-  if(document.getElementById('stage')){
+  // Luz y materia: tira horizontal
+  if(document.getElementById('row')){
   const objs=D.objs||[];
-  const stage=document.getElementById('stage'),capline=document.getElementById('capline'),cnt=document.getElementById('cnt');
-  stage.innerHTML=objs.map(([f,c],i)=>`<figure data-i="${i}"><img src="${IMG}${f}.webp" width="1280" height="1920" alt="${c}" draggable="false"></figure>`).join('');
-  const figs=[...stage.children];
-  let cur=1,shown=null;
-  const prog=document.getElementById('prog');
-  prog.innerHTML=objs.map((o,k)=>`<button type="button" aria-label="Imagen ${k+1}"></button>`).join('');
-  const place=()=>{
-    const w=figs[0].offsetWidth,n=figs.length;
-    stage.style.height=(w*1.5)+'px';
-    figs.forEach((f,i)=>{
-      let d=i-cur; if(d>n/2)d-=n; if(d<-n/2)d+=n;
-      const a=Math.abs(d), s=a===0?1:.5, gap=24, x=d===0?0:Math.sign(d)*(w+gap+(a-1)*(w*.5+gap));
-      // la pieza que da la vuelta (de un extremo al otro) salta sin animarse, para que no cruce por detrás
-      f.style.transition=(f._d!==undefined&&Math.abs(d-f._d)>1)?'none':'';
-      f._d=d;
-      f.style.transform=`translateX(calc(-50% + ${x}px)) scale(${s})`;
-      f.style.transformOrigin=d===0?'50% 50%':(d<0?'100% 50%':'0 50%');
-      f.style.opacity=a>1?0:(a===0?1:.6);
-      f.style.zIndex=10-a;
-      f.setAttribute('aria-hidden',a!==0);
-    });
-    figs.forEach((f,i)=>f.classList.toggle('is-c',i===cur));
-    if(shown!==cur){
-      const fc=figs[cur];fc.classList.remove('in');void fc.offsetWidth;if(shown!==null)fc.classList.add('in');
-      capline.classList.remove('on');
-      capline.innerHTML=objs[cur][1].split(' ').map((w,k)=>`<span style="transition-delay:${.15+k*.03}s">${w}</span>`).join(' ');
-      requestAnimationFrame(()=>requestAnimationFrame(()=>capline.classList.add('on')));
-      [...prog.children].forEach((b,k)=>{b.classList.toggle('on',k===cur);b.setAttribute('aria-current',k===cur)});
-      shown=cur;
-    }
-    cnt.textContent=`${String(cur+1).padStart(2,'0')} — ${String(n).padStart(2,'0')}`;
-  };
-  const go=i=>{cur=(i+figs.length)%figs.length;place()};
-  figs.forEach((f,i)=>f.addEventListener('click',()=>{if(i!==cur)go(i)}));
-  [...prog.children].forEach((b,k)=>b.onclick=()=>go(k));
-  document.getElementById('prev').onclick=()=>go(cur-1);
-  document.getElementById('nextb').onclick=()=>go(cur+1);
-  stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
-  let sx=null;
-  stage.addEventListener('pointerdown',e=>{sx=e.clientX});
-  addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx;sx=null;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1))});
-  new ResizeObserver(place).observe(stage);place();
+  const row=document.getElementById('row'),lmbar=document.getElementById('lmbar');
+  row.innerHTML=objs.map(([f,c])=>`<figure><img src="${IMG}${f}.webp" width="1280" height="1920" alt="${c}" draggable="false"><figcaption>${c}</figcaption></figure>`).join('');
+  const step=()=>row.children[0].offsetWidth+parseFloat(getComputedStyle(row).columnGap||30);
+  const syncBar=()=>{const m=row.scrollWidth-row.clientWidth;lmbar.style.width=(m>0?row.scrollLeft/m*100:100)+'%'};
+  document.getElementById('prev').onclick=()=>row.scrollBy({left:-step(),behavior:'smooth'});
+  document.getElementById('nextb').onclick=()=>row.scrollBy({left:step(),behavior:'smooth'});
+  row.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();row.scrollBy({left:step(),behavior:'smooth'})}if(e.key==='ArrowLeft'){e.preventDefault();row.scrollBy({left:-step(),behavior:'smooth'})}});
+  row.addEventListener('scroll',syncBar,{passive:true});addEventListener('resize',syncBar);
+  let dx=null,dl=0;
+  row.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dx=e.clientX;dl=row.scrollLeft;row.classList.add('drag')});
+  addEventListener('pointermove',e=>{if(dx!==null)row.scrollLeft=dl-(e.clientX-dx)});
+  addEventListener('pointerup',()=>{if(dx===null)return;dx=null;row.classList.remove('drag');const s=step();row.scrollTo({left:Math.round(row.scrollLeft/s)*s,behavior:'smooth'})});
+  syncBar();
   }
 
   // Antes / después con varios pares (solo si la ficha lo tiene)
