@@ -97,6 +97,12 @@ a{color:inherit}
 .quote{padding:clamp(120px,15vw,210px) var(--pad);text-align:center}
 .quote p{margin:0 auto;max-width:760px;font-size:clamp(30px,3.6vw,50px);line-height:1.18}
 
+/* ---------- Foto que alterna dos estados (por ejemplo, un mueble cerrado y abierto) ---------- */
+.ph.fade{position:relative}
+.ph.fade img + img{position:absolute;inset:0;height:100%;object-fit:cover;opacity:0;animation:xfade 8s ease-in-out infinite}
+@keyframes xfade{0%,30%{opacity:0}45%,80%{opacity:1}95%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.ph.fade img + img{animation:none}}
+
 /* ---------- Luz y materia: carrusel con lupa ---------- */
 .objs{margin-top:clamp(120px,15vw,200px);text-align:center}
 .sec-t{margin:0 0 50px;font:400 clamp(36px,4.6vw,66px)/1 var(--display);text-transform:uppercase}
