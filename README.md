@@ -26,6 +26,7 @@ Dominio propio: se agrega un archivo `CNAME` cuando esté listo.
 | GL08 | `proyectos/piso-basavilbaso/` |
 | GL09 | `proyectos/piso-en-bajo-belgrano-2016/` |
 | GL11 | `proyectos/living-en-casa-villanueva/` |
+| GL12 | `proyectos/cocina-en-casa-villanueva/` |
 | GL10 | `proyectos/loft-urbano-casa-foa/` |
 
 El panel de pruebas abajo a la izquierda (tipografía de títulos y color del footer) es temporal, para elegir con el estudio.
