@@ -51,9 +51,12 @@
     figs.forEach((f,i)=>{
       let d=i-cur; if(d>n/2)d-=n; if(d<-n/2)d+=n;
       const a=Math.abs(d), s=a===0?1:.5, gap=24, x=d===0?0:Math.sign(d)*(w+gap+(a-1)*(w*.5+gap));
+      // la pieza que da la vuelta (de un extremo al otro) salta sin animarse, para que no cruce por detrás
+      f.style.transition=(f._d!==undefined&&Math.abs(d-f._d)>1)?'none':'';
+      f._d=d;
       f.style.transform=`translateX(calc(-50% + ${x}px)) scale(${s})`;
       f.style.transformOrigin=d===0?'50% 50%':(d<0?'100% 50%':'0 50%');
-      f.style.opacity=a>2?0:(a===0?1:.55);
+      f.style.opacity=a>1?0:(a===0?1:.6);
       f.style.zIndex=10-a;
       f.setAttribute('aria-hidden',a!==0);
     });
@@ -61,7 +64,7 @@
     if(shown!==cur){
       const fc=figs[cur];fc.classList.remove('in');void fc.offsetWidth;if(shown!==null)fc.classList.add('in');
       capline.classList.remove('on');
-      capline.innerHTML=objs[cur][1].split(' ').map((w,k)=>`<span style="transition-delay:${.25+k*.045}s">${w}</span>`).join(' ');
+      capline.innerHTML=objs[cur][1].split(' ').map((w,k)=>`<span style="transition-delay:${.15+k*.03}s">${w}</span>`).join(' ');
       requestAnimationFrame(()=>requestAnimationFrame(()=>capline.classList.add('on')));
       [...prog.children].forEach((b,k)=>{b.classList.toggle('on',k===cur);b.setAttribute('aria-current',k===cur)});
       shown=cur;
