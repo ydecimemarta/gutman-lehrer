@@ -2,7 +2,7 @@
    IDEA: un recorrido por la casa, de la entrada a la terraza, como una visita guiada.
    PICTURE: portada Elicyon + cascada con tres módulos fijos: plena (parallax), par (igual alto), foto + texto.
    COLOUR and TYPE: blanco cálido, casi negro, footer en color a elegir; Bellefair en mayúsculas para portada y secciones,
-   Cormorant normal en 600 para los títulos del recorrido; sans a 17 px.
+   Cormorant itálica/normal para los títulos del recorrido; sans a 17 px.
    LAYOUT: grilla de 12 columnas; el texto siempre arranca alineado con el borde superior de su foto. */
 :root{
   --bg:#F4F2EE; --ink:#141414; --soft:#4a4744; --mute:#8a857d; --line:rgba(20,20,20,.16);
