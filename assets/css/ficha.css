@@ -29,7 +29,7 @@ a{color:inherit}
 
 /* ---------- Header ---------- */
 .hd{position:fixed;inset:0 0 auto;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px var(--pad);color:var(--bg);transition:transform .45s ease,background .35s,color .35s}
-.hd.solid{background:var(--bg);color:var(--ink);border-bottom:1px solid var(--line)}
+.hd.solid{background:var(--bg);color:var(--ink)}
 .hd.hide{transform:translateY(-100%)}
 .hd nav{display:flex;gap:28px}
 .hd nav a,.hd .right .lang{font:400 13px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;text-decoration:none}
@@ -95,7 +95,7 @@ main p strong,main dd strong{font-weight:600;color:var(--ink)}
 .txt p{margin:0;color:var(--soft);max-width:30em}
 .txt .lbl{display:block;margin-bottom:18px}
 .cap{margin-top:22px}
-.chap{margin-top:clamp(120px,14vw,200px);border-top:1px solid var(--line);padding-top:28px}
+.chap{margin-top:clamp(120px,14vw,200px);padding-top:28px}
 .chap h2{margin:0;font:400 clamp(30px,3.6vw,50px)/1.18 var(--display);text-transform:uppercase}
 .chap .piso{font:500 16px/1.2 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
 .chap p{margin:0;font-size:18.5px;line-height:1.6;color:var(--soft);max-width:32em}
@@ -105,7 +105,7 @@ main p strong,main dd strong{font-weight:600;color:var(--ink)}
 .rv.in{opacity:1;transform:none}
 
 /* ---------- Frase destacada ---------- */
-.quote{padding:clamp(120px,15vw,210px) var(--pad);text-align:center}
+.quote{padding:clamp(190px,22vw,320px) var(--pad);text-align:center}
 .quote p{margin:0 auto;max-width:760px;font-size:clamp(30px,3.6vw,50px);line-height:1.18}
 
 /* ---------- Foto que alterna dos estados (por ejemplo, un mueble cerrado y abierto) ---------- */
@@ -156,7 +156,7 @@ main p strong,main dd strong{font-weight:600;color:var(--ink)}
 .servicio{margin:clamp(110px,13vw,180px) auto 0;max-width:600px;text-align:center;padding:0 var(--pad)}
 .servicio p{margin:0;font-size:18px;color:var(--soft)}
 /* Otros proyectos: bloque aparte, con fondo propio de borde a borde */
-.next{margin-top:clamp(110px,13vw,180px);text-align:center;padding:clamp(80px,9vw,130px) var(--pad) clamp(90px,10vw,140px);background:#E9E4DC;border-top:1px solid var(--line)}
+.next{margin-top:clamp(110px,13vw,180px);text-align:center;padding:clamp(80px,9vw,130px) var(--pad) clamp(90px,10vw,140px);background:#E9E4DC}
 .next > .lbl{display:block;margin-bottom:18px}
 .next .sec-t{margin-bottom:clamp(40px,5vw,64px)}
 .next + .contact{margin-top:0}
@@ -254,7 +254,7 @@ fieldset{border:0;margin:0;padding:0}
 }
 /* ---------- Fichas conceptuales: créditos y paleta de materiales ---------- */
 /* créditos */
-.creds{margin-top:clamp(70px,8vw,110px);row-gap:22px;border-top:1px solid var(--line);margin-left:var(--pad);margin-right:var(--pad);padding:28px 0 0}
+.creds{margin-top:clamp(70px,8vw,110px);row-gap:22px;margin-left:var(--pad);margin-right:var(--pad);padding:28px 0 0}
 .creds div{grid-column:span 3}
 .creds dt{margin:0}
 .creds dd{margin:7px 0 0;font-size:15.5px}
