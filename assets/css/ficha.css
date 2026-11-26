@@ -74,7 +74,7 @@ a{color:inherit}
   .meta div:nth-child(n+3){border-top:1px solid var(--line)}
   .meta div:last-child:nth-child(odd){grid-column:1 / -1}
 }
-main p strong{font-weight:600;color:var(--ink)}
+main p strong,main dd strong{font-weight:600;color:var(--ink)}
 @media (min-width:861px){.intro.open .meta{border-top:0}}
 .g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:0 var(--pad);align-items:start}
 
