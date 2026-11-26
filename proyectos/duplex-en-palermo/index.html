@@ -193,7 +193,11 @@
   <h2 class="sec-t rv">Luz y materia</h2>
   <div class="stage" id="stage" tabindex="0" aria-roledescription="carrusel"></div>
   <p class="capline" id="capline" aria-live="polite"></p>
-  <div class="ctl"><button class="u" id="prev">Anterior</button><span class="cnt" id="cnt"></span><button class="u" id="nextb">Siguiente</button></div>
+  <div class="ctl">
+    <button class="arw" id="prev" aria-label="Imagen anterior"><svg viewBox="0 0 48 24" aria-hidden="true"><path d="M47 12H2M12 2L2 12l10 10"/></svg></button>
+    <div class="pos"><span class="cnt" id="cnt"></span><div class="prog" id="prog"></div></div>
+    <button class="arw" id="nextb" aria-label="Imagen siguiente"><svg viewBox="0 0 48 24" aria-hidden="true"><path d="M1 12h45M36 2l10 10-10 10"/></svg></button>
+  </div>
 </section>
 
 <!-- ANTES / DESPUÉS -->
@@ -211,9 +215,14 @@
 </section>
 
 <!-- SERVICIO + SIGUIENTE PROYECTO -->
-<section class="next">
-  <p class="rv" style="margin:0 auto 70px;max-width:560px;color:var(--soft)">Este proyecto es una <strong style="font-weight:500;color:var(--ink)">reforma integral</strong>: el estudio proyecta la nueva distribución, define materiales, iluminación y terminaciones, y dirige la obra hasta el final.<br><br><a class="u" href="#">Conocer el servicio</a></p>
-  <h2 class="sec-t rv" style="margin-bottom:40px">Otros proyectos</h2>
+<section class="servicio">
+  <p class="rv">Este proyecto es una <strong style="font-weight:500;color:var(--ink)">reforma integral</strong>: el estudio proyecta la nueva distribución, define materiales, iluminación y terminaciones, y dirige la obra hasta el final.<br><br><a class="u" href="#">Conocer el servicio</a></p>
+</section>
+
+<!-- OTROS PROYECTOS -->
+<section class="next" aria-label="Otros proyectos">
+  <span class="lbl rv">Seguir recorriendo</span>
+  <h2 class="sec-t rv">Otros proyectos</h2>
   <div class="g more">
     <a class="card rv" href="../piso-en-bajo-belgrano/" style="grid-column:1 / span 4"><div class="ph"><img src="../../assets/img/proyectos/gl02/GL02-15.webp" width="1200" height="800" alt="Living de un piso en Bajo Belgrano con sillones giratorios y ventanal"></div><h3>Piso en Bajo Belgrano</h3><p>Proyecto integral de interiores · Bajo Belgrano · 2025</p></a>
     <a class="card rv" href="#" style="grid-column:5 / span 4"><div class="ph"><img src="../../assets/img/proyectos/gl06/GL06-01.webp" width="1200" height="800" alt="Living luminoso con sillones de terciopelo naranja"></div><h3>Piso en Av. del Libertador</h3><p>Equipamiento y diseño interior · Belgrano · 2019</p></a>

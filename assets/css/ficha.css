@@ -54,10 +54,13 @@ a{color:inherit}
 .intro h2{margin:0 auto;max-width:640px;font:400 clamp(30px,3.6vw,50px)/1.18 var(--display);text-transform:uppercase;text-wrap:balance}
 .intro p{margin:36px auto 0;max-width:560px;font-size:18px;color:var(--soft)}
 .g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:0 var(--pad);align-items:start}
-.meta{margin-top:clamp(70px,9vw,120px);row-gap:18px;padding-bottom:28px}
-.meta div{grid-column:span 2}
+/* Ficha técnica: filas con filete, etiqueta a la izquierda y dato a la derecha.
+   El ancho de las columnas es fijo, así que se ve igual con datos cortos o largos. */
+.meta.g{display:block;max-width:640px;margin:clamp(64px,8vw,104px) auto 0;padding:0 var(--pad);box-sizing:content-box}
+.meta div{display:grid;grid-template-columns:minmax(110px,34%) 1fr;column-gap:28px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line)}
+.meta div:first-child{border-top:1px solid var(--line)}
 .meta dt{margin:0}
-.meta dd{margin:7px 0 0;font-size:15.5px}
+.meta dd{margin:0;font-size:17px;line-height:1.45}
 
 /* ---------- Módulos de la cascada ---------- */
 .ph{overflow:hidden;background:#e6e2db}
@@ -92,11 +95,31 @@ a{color:inherit}
 .objs{margin-top:clamp(120px,15vw,200px);text-align:center}
 .sec-t{margin:0 0 50px;font:400 clamp(36px,4.6vw,66px)/1 var(--display);text-transform:uppercase}
 .stage{position:relative;overflow:hidden;touch-action:pan-y;cursor:grab}
-.stage figure{position:absolute;left:50%;top:0;margin:0;width:min(30vw,460px);transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s;cursor:pointer}
-.stage figure img{aspect-ratio:2/3;object-fit:cover}
-.capline{min-height:3.2em;margin:22px auto 0;max-width:420px;font-size:16px;color:var(--soft)}
-.ctl{display:flex;justify-content:center;gap:34px;align-items:center;margin-top:4px}
-.ctl .cnt{font:500 12px/1 var(--sans);letter-spacing:.15em;color:var(--mute)}
+/* Transición: las piezas viajan como guijarros (óvalo) y al llegar al centro se abren en rectángulo;
+   la foto se asienta desde un zoom leve y el epígrafe entra palabra por palabra. */
+.stage figure{--e:cubic-bezier(.76,0,.24,1);position:absolute;left:50%;top:0;margin:0;width:min(30vw,460px);overflow:hidden;border-radius:50%;
+  transition:transform 1.15s var(--e),opacity 1.15s var(--e),border-radius 1.15s var(--e),filter 1.15s var(--e);cursor:pointer;filter:saturate(.75)}
+.stage figure.is-c{border-radius:0;filter:none;cursor:grab}
+.stage figure img{aspect-ratio:2/3;object-fit:cover;transform:scale(1.22);transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+.stage figure.is-c img{transform:scale(1)}
+.stage figure.is-c.in img{animation:settle 1.6s cubic-bezier(.16,1,.3,1)}
+@keyframes settle{0%{transform:scale(1.22);filter:brightness(1.18)}55%{filter:brightness(1)}100%{transform:scale(1)}}
+.capline{min-height:3.2em;margin:26px auto 0;max-width:440px;font:300 italic 21px/1.35 var(--serif);color:var(--ink)}
+.capline span{display:inline-block;opacity:0;transform:translateY(.55em);filter:blur(4px);transition:opacity .7s,transform .7s cubic-bezier(.16,1,.3,1),filter .7s}
+.capline.on span{opacity:1;transform:none;filter:none}
+.ctl{display:flex;justify-content:center;gap:clamp(22px,4vw,48px);align-items:center;margin-top:22px}
+.arw{width:62px;height:62px;border:1px solid var(--line);border-radius:50%;background:none;display:grid;place-items:center;cursor:pointer;color:var(--ink);transition:background .35s,color .35s,border-color .35s}
+.arw svg{width:26px;height:13px;fill:none;stroke:currentColor;stroke-width:1.6;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.arw:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#prev:hover svg{transform:translateX(-4px)} #nextb:hover svg{transform:translateX(4px)}
+.arw:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.pos{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:150px}
+.ctl .cnt{font:400 20px/1 var(--display);letter-spacing:.08em;color:var(--ink)}
+.prog{display:flex;gap:6px}
+.prog button{width:22px;height:14px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.prog button::before,.prog button::after{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:var(--line)}
+.prog button::after{background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.76,0,.24,1)}
+.prog button.on::after{transform:scaleX(1)}
 
 /* ---------- Antes / después ---------- */
 .ba{margin-top:clamp(120px,14vw,190px);text-align:center;padding:0 var(--pad)}
@@ -114,7 +137,13 @@ a{color:inherit}
 .ba .note{margin:16px auto 0;max-width:560px;font-size:14px;color:var(--mute)}
 
 /* ---------- Siguiente proyecto ---------- */
-.next{margin-top:clamp(130px,15vw,210px);text-align:center;padding:0 var(--pad)}
+.servicio{margin:clamp(110px,13vw,180px) auto 0;max-width:600px;text-align:center;padding:0 var(--pad)}
+.servicio p{margin:0;font-size:18px;color:var(--soft)}
+/* Otros proyectos: bloque aparte, con fondo propio de borde a borde */
+.next{margin-top:clamp(110px,13vw,180px);text-align:center;padding:clamp(80px,9vw,130px) var(--pad) clamp(90px,10vw,140px);background:#E9E4DC;border-top:1px solid var(--line)}
+.next > .lbl{display:block;margin-bottom:18px}
+.next .sec-t{margin-bottom:clamp(40px,5vw,64px)}
+.next + .contact{margin-top:0}
 .card{display:block;text-decoration:none;text-align:left}
 .card .ph{aspect-ratio:4/5}
 .card .ph img{height:100%;object-fit:cover}

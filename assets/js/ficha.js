@@ -42,7 +42,9 @@
   const stage=document.getElementById('stage'),capline=document.getElementById('capline'),cnt=document.getElementById('cnt');
   stage.innerHTML=objs.map(([f,c],i)=>`<figure data-i="${i}"><img src="${IMG}${f}.webp" width="1280" height="1920" alt="${c}" draggable="false"></figure>`).join('');
   const figs=[...stage.children];
-  let cur=1;
+  let cur=1,shown=null;
+  const prog=document.getElementById('prog');
+  prog.innerHTML=objs.map((o,k)=>`<button type="button" aria-label="Imagen ${k+1}"></button>`).join('');
   const place=()=>{
     const w=figs[0].offsetWidth,n=figs.length;
     stage.style.height=(w*1.5)+'px';
@@ -55,11 +57,20 @@
       f.style.zIndex=10-a;
       f.setAttribute('aria-hidden',a!==0);
     });
-    capline.textContent=objs[cur][1];
-    cnt.textContent=`${cur+1} / ${n}`;
+    figs.forEach((f,i)=>f.classList.toggle('is-c',i===cur));
+    if(shown!==cur){
+      const fc=figs[cur];fc.classList.remove('in');void fc.offsetWidth;if(shown!==null)fc.classList.add('in');
+      capline.classList.remove('on');
+      capline.innerHTML=objs[cur][1].split(' ').map((w,k)=>`<span style="transition-delay:${.25+k*.045}s">${w}</span>`).join(' ');
+      requestAnimationFrame(()=>requestAnimationFrame(()=>capline.classList.add('on')));
+      [...prog.children].forEach((b,k)=>{b.classList.toggle('on',k===cur);b.setAttribute('aria-current',k===cur)});
+      shown=cur;
+    }
+    cnt.textContent=`${String(cur+1).padStart(2,'0')} — ${String(n).padStart(2,'0')}`;
   };
   const go=i=>{cur=(i+figs.length)%figs.length;place()};
   figs.forEach((f,i)=>f.addEventListener('click',()=>{if(i!==cur)go(i)}));
+  [...prog.children].forEach((b,k)=>b.onclick=()=>go(k));
   document.getElementById('prev').onclick=()=>go(cur-1);
   document.getElementById('nextb').onclick=()=>go(cur+1);
   stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
