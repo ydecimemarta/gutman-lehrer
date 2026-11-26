@@ -24,6 +24,7 @@ Dominio propio: se agrega un archivo `CNAME` cuando esté listo.
 | GL06 | `proyectos/piso-en-av-del-libertador/` |
 | GL07 | `proyectos/casa-en-altamira/` |
 | GL08 | `proyectos/piso-basavilbaso/` |
+| GL09 | `proyectos/piso-en-bajo-belgrano-2016/` |
 | GL10 | `proyectos/loft-urbano-casa-foa/` |
 
 El panel de pruebas abajo a la izquierda (tipografía de títulos y color del footer) es temporal, para elegir con el estudio.
