@@ -39,19 +39,15 @@
   // Luz y materia: tira horizontal
   if(document.getElementById('row')){
   const objs=D.objs||[];
-  const row=document.getElementById('row'),lmbar=document.getElementById('lmbar');
+  const row=document.getElementById('row');
   row.innerHTML=objs.map(([f,c])=>`<figure><img src="${IMG}${f}.webp" width="1280" height="1920" alt="${c}" draggable="false"><figcaption>${c}</figcaption></figure>`).join('');
   const step=()=>row.children[0].offsetWidth+parseFloat(getComputedStyle(row).columnGap||30);
-  const syncBar=()=>{const m=row.scrollWidth-row.clientWidth;lmbar.style.width=(m>0?row.scrollLeft/m*100:100)+'%'};
-  document.getElementById('prev').onclick=()=>row.scrollBy({left:-step(),behavior:'smooth'});
-  document.getElementById('nextb').onclick=()=>row.scrollBy({left:step(),behavior:'smooth'});
   row.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();row.scrollBy({left:step(),behavior:'smooth'})}if(e.key==='ArrowLeft'){e.preventDefault();row.scrollBy({left:-step(),behavior:'smooth'})}});
-  row.addEventListener('scroll',syncBar,{passive:true});addEventListener('resize',syncBar);
+  
   let dx=null,dl=0;
   row.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dx=e.clientX;dl=row.scrollLeft;row.classList.add('drag')});
   addEventListener('pointermove',e=>{if(dx!==null)row.scrollLeft=dl-(e.clientX-dx)});
   addEventListener('pointerup',()=>{if(dx===null)return;dx=null;row.classList.remove('drag');const s=step();row.scrollTo({left:Math.round(row.scrollLeft/s)*s,behavior:'smooth'})});
-  syncBar();
   }
 
   // Antes / después con varios pares (solo si la ficha lo tiene)
