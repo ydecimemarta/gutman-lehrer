@@ -28,19 +28,21 @@ a.pc:hover .ph img{transform:scale(1.035)}
 a.pc h2{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:6px;text-decoration-thickness:1px;transition:text-decoration-color .3s}
 a.pc:hover h2,a.pc:focus-visible h2{text-decoration-color:currentColor}
 .pc.soon .tag{position:absolute;top:14px;left:14px;background:var(--bg);color:var(--ink);padding:8px 10px}
-.svcs{margin-top:clamp(120px,14vw,200px);padding:clamp(80px,9vw,130px) var(--pad) clamp(80px,9vw,130px);background:#E9E4DC;text-align:center}
-.svcs > h2{margin:0 0 clamp(40px,5vw,64px);font:400 clamp(26px,2.6vw,38px)/1 var(--display);text-transform:uppercase;letter-spacing:.14em}
-.svc-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);text-align:left}
-.svc{display:block;text-decoration:none;color:inherit}
-.svc .ph{aspect-ratio:4/5}
-.svc .ph img{height:100%;object-fit:cover}
-.svc:hover .ph img{transform:scale(1.035)}
-.svc h3{margin:18px 0 8px;font:400 clamp(20px,1.7vw,26px)/1.15 var(--display);text-transform:uppercase;letter-spacing:.03em}
-.svc p{margin:0;font-size:15.5px;line-height:1.5;color:var(--soft);max-width:26em}
-.svcs .allp{margin-top:clamp(40px,4vw,56px)}
-.svcs + .contact{margin-top:0}
+.svcs{margin-top:clamp(110px,12vw,170px);padding:0 var(--pad)}
+.svc-head{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}
+.svc-head h2{margin:0;font:400 clamp(20px,1.8vw,26px)/1 var(--display);text-transform:uppercase;letter-spacing:.14em}
+.svc-head .btn{min-height:44px;padding:0 22px;font-size:12px}
+.svc-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.svc{position:relative;display:flex;flex-direction:column;min-height:180px;padding:26px 26px 22px;background:#EAE6DF;color:var(--ink);text-decoration:none;transition:background .35s,color .35s}
+.svc h3{margin:0 0 10px;font:400 19px/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em}
+.svc p{margin:0 0 22px;font-size:15px;line-height:1.5;color:var(--soft);max-width:24em;transition:color .35s}
+.svc .go{margin-top:auto;width:36px;height:36px;border:1px solid rgba(20,20,20,.25);border-radius:50%;display:grid;place-items:center;transition:border-color .35s,transform .35s}
+.svc .go svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5}
+.svc:hover,.svc:focus-visible{background:var(--ink);color:var(--bg)}
+.svc:hover p,.svc:focus-visible p{color:rgba(244,242,238,.75)}
+.svc:hover .go,.svc:focus-visible .go{border-color:rgba(244,242,238,.5);transform:translateX(4px)}
 @media (max-width:700px){
-  .svc-row{grid-template-columns:minmax(0,1fr);row-gap:48px}.prow{flex-direction:column;gap:56px}.pg{row-gap:56px}.pc{width:100%}.pc.w8 .ph{aspect-ratio:3/2}}
+  .svc-row{grid-template-columns:minmax(0,1fr)}.svc{min-height:0}.prow{flex-direction:column;gap:56px}.pg{row-gap:56px}.pc{width:100%}.pc.w8 .ph{aspect-ratio:3/2}}
 </style>
 </head>
 <body>
@@ -78,13 +80,15 @@ a.pc:hover h2,a.pc:focus-visible h2{text-decoration-color:currentColor}
   </div>
 </section>
 <section class="svcs" aria-labelledby="svc-t">
-  <h2 class="rv" id="svc-t">Servicios</h2>
-  <div class="svc-row">
-    <a class="svc rv" href="#"><div class="ph"><img src="../assets/img/proyectos/gl01/GL01-26.webp" alt="Living con sillón en L frente a un ventanal con plantas" loading="lazy" style="object-position:50% 50%"></div><h3>Reforma integral</h3><p>La transformación completa de una vivienda existente, del proyecto a la dirección de obra.</p></a>
-    <a class="svc rv" href="#"><div class="ph"><img src="../assets/img/proyectos/gl06/GL06-12.webp" alt="Escalera blanca suspendida sobre un estar con piano y alfombra tejida" loading="lazy"></div><h3>Interiorismo en obra nueva</h3><p>Interiores, iluminación y equipamiento definidos desde el inicio de la construcción.</p></a>
-    <a class="svc rv" href="#"><div class="ph"><img src="../assets/img/proyectos/gl11/GL11-06.webp" alt="Estantes iluminados con objetos, libros y piezas de diseño" loading="lazy"></div><h3>Llave en mano</h3><p>La vivienda entregada completa y lista para habitar, hasta el último objeto.</p></a>
+  <div class="svc-head">
+    <h2 class="rv" id="svc-t">Servicios</h2>
+    <a class="btn line rv" href="#">Ver servicios</a>
   </div>
-  <a class="u rv allp" href="#">Conocer los servicios</a>
+  <div class="svc-row">
+    <a class="svc rv" href="#"><h3>Reforma integral</h3><p>La transformación completa de una vivienda existente, del proyecto a la dirección de obra.</p><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+    <a class="svc rv" href="#"><h3>Interiorismo en obra nueva</h3><p>Interiores, iluminación y equipamiento definidos desde el inicio de la construcción.</p><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+    <a class="svc rv" href="#"><h3>Llave en mano</h3><p>La vivienda entregada completa y lista para habitar, hasta el último objeto.</p><span class="go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+  </div>
 </section>
 <section class="contact" id="contacto">
   <div class="bgimg"><img src="../assets/img/proyectos/gl10/GL10-11.webp" width="1920" height="1280" alt=""></div>
