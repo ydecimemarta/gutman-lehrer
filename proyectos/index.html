@@ -12,8 +12,8 @@
 <style>
 .hd{background:var(--bg);color:var(--ink)}
 .hd nav a[aria-current]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
-.ptop{padding:calc(120px + 4vw) var(--pad) clamp(44px,5vw,80px)}
-.ptop h1{margin:0;font:400 clamp(58px,11.5vw,190px)/.86 var(--display);text-transform:uppercase;letter-spacing:-.005em}
+.ptop{padding:calc(110px + 3vw) var(--pad) clamp(40px,4.5vw,72px);text-align:center}
+.ptop h1{margin:0;font:400 clamp(30px,3.4vw,50px)/1 var(--display);text-transform:uppercase;letter-spacing:.14em}
 .pg{display:grid;row-gap:clamp(48px,5.5vw,88px);padding:0 var(--pad)}
 .prow{display:flex;gap:var(--gap);align-items:flex-start}
 .pc{display:block;text-decoration:none;color:inherit;position:relative;flex-basis:0}
@@ -28,9 +28,19 @@ a.pc:hover .ph img{transform:scale(1.035)}
 a.pc h2{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:6px;text-decoration-thickness:1px;transition:text-decoration-color .3s}
 a.pc:hover h2,a.pc:focus-visible h2{text-decoration-color:currentColor}
 .pc.soon .tag{position:absolute;top:14px;left:14px;background:var(--bg);color:var(--ink);padding:8px 10px}
-.pend{margin:clamp(110px,13vw,180px) auto 0;max-width:640px;text-align:center;padding:0 var(--pad)}
-.pend p{margin:0 0 6px;font-size:18px;color:var(--soft)}
-@media (max-width:700px){.prow{flex-direction:column;gap:56px}.pg{row-gap:56px}.pc{width:100%}.pc.w8 .ph{aspect-ratio:3/2}}
+.svcs{margin-top:clamp(120px,14vw,200px);padding:clamp(80px,9vw,130px) var(--pad) clamp(80px,9vw,130px);background:#E9E4DC;text-align:center}
+.svcs > h2{margin:0 0 clamp(40px,5vw,64px);font:400 clamp(26px,2.6vw,38px)/1 var(--display);text-transform:uppercase;letter-spacing:.14em}
+.svc-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);text-align:left}
+.svc{display:block;text-decoration:none;color:inherit}
+.svc .ph{aspect-ratio:4/5}
+.svc .ph img{height:100%;object-fit:cover}
+.svc:hover .ph img{transform:scale(1.035)}
+.svc h3{margin:18px 0 8px;font:400 clamp(20px,1.7vw,26px)/1.15 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.svc p{margin:0;font-size:15.5px;line-height:1.5;color:var(--soft);max-width:26em}
+.svcs .allp{margin-top:clamp(40px,4vw,56px)}
+.svcs + .contact{margin-top:0}
+@media (max-width:700px){
+  .svc-row{grid-template-columns:minmax(0,1fr);row-gap:48px}.prow{flex-direction:column;gap:56px}.pg{row-gap:56px}.pc{width:100%}.pc.w8 .ph{aspect-ratio:3/2}}
 </style>
 </head>
 <body>
@@ -67,12 +77,17 @@ a.pc:hover h2,a.pc:focus-visible h2{text-decoration-color:currentColor}
     <a class="pc w8 rv" href="piso-en-bajo-belgrano-2016/"><div class="ph"><img src="../assets/img/proyectos/gl09/GL09-01.webp" alt="Balcón cerrado con dos sillones grises frente a un ventanal" loading="lazy"></div><div class="cap"><h2>Un departamento que ganó luz y espacio</h2><p>Reforma completa con ampliación · Bajo Belgrano · 2016</p></div></a>
   </div>
 </section>
-<section class="pend">
-  <p class="rv">Más de 100 proyectos desde 1996, en Argentina, España y Estados Unidos.</p>
-  <a class="u rv" href="#">Conocer el estudio</a>
+<section class="svcs" aria-labelledby="svc-t">
+  <h2 class="rv" id="svc-t">Servicios</h2>
+  <div class="svc-row">
+    <a class="svc rv" href="#"><div class="ph"><img src="../assets/img/proyectos/gl01/GL01-26.webp" alt="Living con sillón en L frente a un ventanal con plantas" loading="lazy" style="object-position:50% 50%"></div><h3>Reforma integral</h3><p>La transformación completa de una vivienda existente, del proyecto a la dirección de obra.</p></a>
+    <a class="svc rv" href="#"><div class="ph"><img src="../assets/img/proyectos/gl06/GL06-12.webp" alt="Escalera blanca suspendida sobre un estar con piano y alfombra tejida" loading="lazy"></div><h3>Interiorismo en obra nueva</h3><p>Interiores, iluminación y equipamiento definidos desde el inicio de la construcción.</p></a>
+    <a class="svc rv" href="#"><div class="ph"><img src="../assets/img/proyectos/gl11/GL11-06.webp" alt="Estantes iluminados con objetos, libros y piezas de diseño" loading="lazy"></div><h3>Llave en mano</h3><p>La vivienda entregada completa y lista para habitar, hasta el último objeto.</p></a>
+  </div>
+  <a class="u rv allp" href="#">Conocer los servicios</a>
 </section>
 <section class="contact" id="contacto">
-  <div class="bgimg"><img src="../assets/img/proyectos/gl05/GL05-03.webp" width="1920" height="1280" alt=""></div>
+  <div class="bgimg"><img src="../assets/img/proyectos/gl10/GL10-11.webp" width="1920" height="1280" alt=""></div>
   <div class="box rv">
     <h2 class="hl">Todo empieza con una conversación</h2>
     <p class="sub">El estudio diseña viviendas completas en Argentina, España y Estados Unidos.</p>
