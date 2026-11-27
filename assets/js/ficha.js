@@ -54,9 +54,9 @@
   if(D.pairs&&document.getElementById('cmp')){
   const pairs=D.pairs;
   const tabs=document.getElementById('tabs'),cmp=document.getElementById('cmp'),imgA=document.getElementById('imgA'),imgB=document.getElementById('imgB'),rng=document.getElementById('rng'),hdl=document.getElementById('hdl');
-  tabs.innerHTML=pairs.map((p,i)=>`<button class="u" role="tab" data-i="${i}">${p.name}</button>`).join('');
+  tabs.innerHTML=pairs.map((p,i)=>{const t=p.name.split(' · ').pop();return `<button class="th" role="tab" data-i="${i}" aria-label="${p.name}"><span class="tim"><img src="${IMG}${p.a}.webp" alt="" loading="lazy"><img src="${IMG}${p.b}.webp" alt="" loading="lazy"></span><span class="tl">${t[0].toUpperCase()+t.slice(1)}</span></button>`}).join('');
   let pr=pairs[0];
-  const size=()=>{const cs=getComputedStyle(cmp.parentElement),maxW=cmp.parentElement.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),maxH=innerHeight*.82;let w=Math.min(maxW,maxH*pr.r);cmp.style.width=w+'px';cmp.style.height=(w/pr.r)+'px'};
+  const size=()=>{const wr=cmp.parentElement,cs=getComputedStyle(wr),side=cs.flexDirection==='row'&&tabs.offsetWidth?tabs.offsetWidth+parseFloat(cs.columnGap):0,maxW=wr.clientWidth-side,maxH=innerHeight*.82;let w=Math.min(maxW,maxH*pr.r);cmp.style.width=w+'px';cmp.style.height=(w/pr.r)+'px'};
   const setPair=i=>{
     pr=pairs[i];
     imgA.src=`${IMG}${pr.a}.webp`;imgA.alt=`${pr.name}, antes de la reforma`;
